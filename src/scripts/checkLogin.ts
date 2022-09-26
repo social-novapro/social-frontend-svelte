@@ -6,6 +6,7 @@ async function CheckLogin(ee:any) {
     // returnData.headers: any
 
     returnData.headers = {
+        'Content-Type': 'application/json',
         "devtoken": "33c4d102-9ece-4f8d-947a-ea1ab00e9081",
         "apptoken": "2d4048d3-16f2-48d4-95f4-4ab6a43aac53",
     };
@@ -40,7 +41,7 @@ async function CheckLogin(ee:any) {
 
         const data = await response.json()
 
-        console.log(data);
+        // console.log(data);
 
         if (!data.login) {
             returnData.headers = null;
