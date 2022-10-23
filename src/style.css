@@ -1,0 +1,446 @@
+:root {
+    /* MAIN ROOT ONLY */
+    font-size: 16px;
+    --transition-speed: 250ms ease;
+    /* Main Backgrounds (x1) */
+    --main-body-color: rgb(28, 28, 30);     
+    /* Button Backgrounds (x2) */
+    --main-button-color: rgb(44, 44, 46);
+    --main-nav-color: rgb(44, 44, 46);
+    --hover-button-color: rgb(60,60,60);
+    --hover-nav-color: rgb(60,60,60);
+    /* shadow Colors (x3) */
+    --main-shadow-color: 0px 0px 15px rgba(17, 17, 18, 0.9);
+    --navbar-box-shadow:  
+        rgb(0, 0, 0) 12px 12px 15px,
+        rgb(0, 0, 0) 12px 12px -15px, 
+        rgb(0, 0, 0) 12px -12px 15px, 
+        rgb(0, 0, 0) 12px -12px -15px;
+    --nav-link-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.56);
+    /* Border Colors (x2) */
+    --main-border-color:rgb(107, 107, 107);
+    --hover-border-color: rgba(39, 113, 240, 0.9);
+    /* Border Divider (x2) */
+    --main-divider: 2px solid #bbb;
+    /* Text Colors (x6) */
+    --hover-box-text-color: rgb(209, 209, 209);
+    --main-h1-color: #e6e6e6; 
+    --main-h2-color: #d4d4d4; 
+    --main-a-color: rgb(218, 218, 218); 
+    --main-p-color: rgb(201, 201, 201); 
+    --fa-secondary-colour:  rgb(184, 184, 184);;
+}
+.buttonStyle2 {
+    background-color: rgb(44, 44, 46, 0.95);
+    border:none;
+    float: left;
+    display: block;
+    text-align: center;
+    text-decoration: none;   
+    padding: 20px;
+    background-color: var(--hover-border-color);
+    box-shadow: 0 5px 0 rgba(9, 74, 186, 0.9);
+    transition: transform 0.1s ease-out;
+}
+.buttonStyle2:active {
+    box-shadow: none;
+    transform: translateY(5px);
+}
+h1 {
+    color: var(--main-h1-color)
+}
+*, *::before, *::after {
+    margin: 0px;
+    padding: 0px;
+}
+html {
+    font-family: "Helvetica neue", sans-serif;
+    scroll-behavior: smooth;
+}
+html,body {
+    margin: 0;
+    width: 100%;
+}
+body {
+    color: black;
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-body-color);
+    padding-bottom: 20px;
+}
+.main-header {
+    text-align: center;    
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+p {
+    color: var(--main-p-color)
+}
+.buttonStyled {
+    text-decoration: none;
+    color: var(--main-p-color)
+}
+.spacer {
+    padding: 5px;
+    background-color: red;
+}
+.debug {
+    display: none;
+}
+.debug-shown {
+    display:block;
+}
+.nav { 
+    background-color: rgb(44, 44, 46, 0.95);
+    padding: 20px;
+    width: 100%;
+    border-bottom: 2px solid rgba(39, 113, 240, 0.9);
+    top: 0;
+    position: fixed;
+    display: block;
+    text-align: center;
+    height: 40px;
+}
+.nav .buttonStyled {
+    background-color: rgb(44, 44, 46, 0.95);
+    border:none;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;    
+}
+.nav .buttonStyled:hover {
+    color:rgba(39, 113, 240, 0.9);
+}
+.activeNav {
+    color:red;
+}
+.mainArea {
+    padding-top: 80px;
+}
+.modalContainer {
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    transition: opacity 0.3s ease;
+}
+.modalContainer.showModal {
+    pointer-events: auto;
+    opacity: 1;
+}
+.modal {
+    background-color: var(--main-button-color);
+    border-radius: 15px;
+    border: 2px solid rgba(39, 113, 240, 0.9);
+    box-shadow: var(--main-shadow-color);
+    padding: 20px;
+    width: 700px;
+    max-height: 50%;
+    max-width: 100%;
+    text-align: center;
+}
+.modal .buttonStyled {
+    background-color:  var(--main-button-color);
+    border: 2px solid var(--main-border-color);
+    overflow-wrap: break-word;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    /*
+    display: inline-block;
+    */
+    text-decoration: none;
+    color: var(--main-a-color);
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 
+        var(--main-shadow-color);
+    transition: transform 400ms, border-color 400ms, background-color 400ms;    
+}
+.modalContainer .buttonStyled:hover {
+    border-color:rgba(39, 113, 240, 0.9);
+}
+.modal h1 {
+    font-size: 30px;
+}
+.modal p {
+    font-size: 15px;
+}
+button {
+    all: unset;
+}
+/* DIVIDER */
+hr.rounded {
+    border: var(--main-divider);
+    border-radius: 2px;
+    margin: 20px;
+    margin-left: 20%; 
+    margin-right: 20%; 
+}
+.blur {
+    color: transparent;
+    text-shadow: 0 0 8px rgb(134, 36, 36);
+    cursor: pointer;
+    user-select: none;
+}
+.search:hover {
+    border-color:rgba(39, 113, 240, 0.9);
+}
+.search input {
+    color: var(--main-a-color);
+    width: 90%;
+    background-color:  var(--main-button-color);
+    outline: none;
+    border: none;
+}
+.searchSelect {
+    background-color:  var(--main-button-color);
+    border: 2px solid var(--main-border-color);
+    overflow-wrap: break-word;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    /*
+        display: inline-block;
+    */
+    text-decoration: none;
+    color: var(--main-a-color);
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 
+        var(--main-shadow-color);
+    transition: transform 400ms, border-color 400ms, background-color 400ms;
+}
+.userInfo {
+    background-color:  var(--main-button-color);
+    border: 2px solid var(--main-border-color);
+    overflow-wrap: break-word;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    /*
+        display: inline-block;
+    */
+    text-decoration: none;
+    color: var(--main-a-color);
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 
+        var(--main-shadow-color);
+    transition: transform 400ms, border-color 400ms, background-color 400ms;
+}
+.searchBar {
+    text-align: left;
+}
+.pointerCursor {
+    cursor: pointer;
+}
+.areaPost p {
+    padding: 10px;
+    text-align: left;
+}
+
+.publicPost {
+    background-color:  var(--main-button-color);
+    border: 2px solid var(--main-border-color);
+    overflow-wrap: break-word;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    /*
+    display: inline-block;
+    */
+    text-decoration: none;
+    color: var(--main-a-color);
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 
+        var(--main-shadow-color);
+    transition: transform 400ms, border-color 400ms, background-color 400ms;
+}
+.mainButton {
+    display: inline-block;
+}
+.contentMessageFormEdit {
+    border: none;
+    width: 100%;
+    background-color:  var(--main-button-color);
+    color: var(--main-a-color);
+}
+.userEditForm {
+    background-color:  var(--main-button-color);
+    color: var(--main-p-color)
+
+}
+.debug {
+    font-size: smaller;
+    color: rgb(112, 112, 112);
+}
+.easteregg {
+    padding: 15px;
+}
+.ownUser {
+    color: rgb(81, 144, 251);
+}
+.otherUser {
+    color: rgb(146, 146, 146)
+}
+.subheaderMessage {
+    font-size: smaller;
+    padding: 3px
+}
+.contentMessage {
+    font-size: medium;
+    padding: 3px;
+}
+.mainButtons .buttonStyled {
+    background-color:  var(--main-button-color);
+    border: 2px solid var(--main-border-color);
+    word-wrap: normal;
+    display: block;
+    margin: 10px;
+    text-decoration: none;
+    color: var(--main-a-color);
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;  
+    box-shadow: 
+        var(--main-shadow-color);
+    transition: transform 400ms, border-color 400ms, background-color 400ms;
+}
+.signInDiv .buttonStyled {
+    background-color:  var(--main-button-color);
+    border: 2px solid var(--main-border-color);
+    overflow-wrap: break-word;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--main-a-color);
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;  
+    box-shadow: 
+        var(--main-shadow-color);
+    transition: transform 400ms, border-color 400ms, background-color 400ms;
+}
+.mainNameEasterEgg {
+    background-color:  var(--main-button-color);
+    border: 2px solid var(--main-border-color);
+    overflow-wrap: break-word;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    /*
+    display: inline-block;
+    */
+    text-decoration: none;
+    color: var(--main-a-color);
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 
+        var(--main-shadow-color);
+    transition: transform 400ms, border-color 400ms, background-color 400ms;
+}
+.mainNameEasterEgg .buttonStyled {
+    background-color:  var(--main-button-color);
+    border: 2px solid var(--main-border-color);
+    overflow-wrap: break-word;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    /*
+    display: inline-block;
+    */
+    text-decoration: none;
+    color: var(--main-a-color);
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 
+        var(--main-shadow-color);
+    transition: transform 400ms, border-color 400ms, background-color 400ms;
+}
+.actionOptions {
+    display: flex;
+}
+.postTextArea {
+    width: 70%;
+    height: 200px;
+    background-color: var(--main-body-color);
+    color: var(--main-p-color);
+    padding: 10px;
+    font-size: 16px;
+}
+.postModalActions p {
+    display: flex;
+    background-color:  var(--main-button-color);
+    border: 2px solid var(--main-border-color);
+    word-wrap: normal;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    text-decoration: none;
+    color: var(--main-a-color);
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;  
+    box-shadow: 
+        var(--main-shadow-color);
+    transition: transform 400ms, border-color 400ms, background-color 400ms;
+}
+/* without box
+.postContent {
+    overflow-wrap: break-word;
+    text-decoration: none;
+    color: var(--main-a-color);
+    text-align: left;
+    transition: transform 400ms, border-color 400ms, background-color 400ms;
+}
+*/
+.textAreaPost {
+    display: flex;
+}
+.PostAttachments {
+    display: block;
+}
+.postContent {
+    background-color:  rgba(44, 44, 44, 0.548);
+    border: 2px solid var(--main-border-color);
+    overflow-wrap: break-word;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: var(--main-a-color);
+    text-align: left;
+    padding: 15px;
+    border-radius: 15px;
+    transition: transform 400ms, border-color 400ms, background-color 400ms;
+}
+.searchUser p{
+    padding: 5px;
+}
+.edited i {
+    color: var(--hover-border-color)
+}
+.likedColour {
+    color: var(--hover-border-color);
+}

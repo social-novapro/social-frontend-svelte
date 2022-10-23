@@ -2,12 +2,10 @@
 	// import PostDiv from 'components/post_div.svelte';
 	import PostDiv from './components/post_div.svelte';
 	// import '@fontsource/red-hat-display/300.css';
-
 	let postList: any[];
-
+    let userID: String;
     const apiURL = "http://localhost:5002/v1";
     
-
     var headers = { };
 
     import CheckLogin from '../scripts/checkLogin';
@@ -19,6 +17,7 @@
         if (data.success != true) return null;
 
         headers = data.headers;
+        userID = data.headers.userID
         await GetFeed();
 	});
 

@@ -10,10 +10,12 @@ async function CheckLogin(ee:any) {
         "devtoken": "33c4d102-9ece-4f8d-947a-ea1ab00e9081",
         "apptoken": "2d4048d3-16f2-48d4-95f4-4ab6a43aac53",
     };
+    returnData.apiURL = "http://localhost:5002/v1"
 
     /*
         success: Boolean
         message: String
+        apiURL: String
         headers
             appToken
             devToken

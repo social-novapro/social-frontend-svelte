@@ -1,40 +1,28 @@
 <script lang="ts">
-	// import PostDiv from 'components/post_div.svelte';
-	// import PostDiv from './components/post_div.svelte';
-	// import '@fontsource/red-hat-display/300.css';
 	import { page } from '$app/stores';
-
 	let post: any;
 
-    const apiURL = "http://localhost:5002/v1";
-    var headers = {
-        'Content-Type': 'application/json',
-        "devtoken": "33c4d102-9ece-4f8d-947a-ea1ab00e9081",
-        "apptoken": "2d4048d3-16f2-48d4-95f4-4ab6a43aac53",
-        "userid": "c0db2ee9-0916-4e15-867a-bcd0edd9cc22",
-        "usertoken": "2f12445a-7dd4-4c0b-9bf8-acbc4bece341",
-        "accesstoken": "00dd1e19-0177-498d-af98-cb80073551de"
+    import CheckLogin from '../../../scripts/checkLogin';
+    import { onMount } from 'svelte';
+
+    onMount(async () => {
+        const data = await CheckLogin("ee");
+        if (data.success != true) return null;
+        await pageCode(data);
+	});
+
+    async function pageCode(startData:any) {
+        const { headers, apiURL } = startData;
+        await GetPost(apiURL, headers);
     };
 
-    const postID = $page.params.id;
-    GetPost();
 
-
-    async function GetPost() {
+    async function GetPost(apiURL:string, headers:any) {
+        const postID = $page.params.id;
         const response = await fetch(`${apiURL}/get/post/${postID}`, { method: 'GET', headers});
         const data = await response.json();
         post = data;
-        // console.log(postList);
     };
-
-    console.log(post)
-
-
-    // fetch('https://api.huelet.net/videos/get?bulk=true')
-	// 	.then((response) => response.json())
-	// 	.then((videos) => {
-	// 		videoList = videos.data;
-	// 	});
 </script>
 <h1>Welcome to Post</h1>
 <!-- <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p> -->

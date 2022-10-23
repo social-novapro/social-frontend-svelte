@@ -1,4 +1,5 @@
 <script lang="ts">
+    import '../style.css'
     import CheckLogin from '../scripts/checkLogin';
     import { onMount } from 'svelte';
     // https://svelte.dev/tutorial/onmount
